@@ -1,0 +1,53 @@
+Weer in reactie op jouw reactie (in het rood..):
+
+V - In de inleiding moet even aangepast worden dat we nu gebruik maken van atmel studio 6. Daarnaast is de site van Harry niet echt verkoopbaar, dus die URL moet ook nog weg.
+Het is trouwens Atmel studio ipv AVR studio (staat er nu nog). Is het trouwens niet handiger om naar MICPRG blackboard te verwijzen?
+
+** MICPRG is niet openbaar, en dat is wat *ik* wil.
+
+V -Op bladzijde 8: De variabele naam s zou ik graag willen vervangen door een betere naam. Op zich is de naamgeving hier niet ernstig, maar ik zou graag studenten geen voorbeelden meer willen geven van éénletterige variabele namen. 
+
+V -En bladzijde 10….. Daar verschillen jij en ik nogal van mening. Ik zou zeggen de kunst is juist om je code zo te schrijven dat je geen commentaar nodig hebt door het gebruik van veel functies en duidelijke variabele namen. Er zijn zeker wat mensen te vinden die dat ook ondersteunen, bijv. : http://apdevblog.com/comments-in-code/ Maar eigenlijk is het boek van Robbert C. Martin (clean code) nog wel de beste bron.
+Top omschreven nu!
+
+V -bladzijde 11: ik zou een andere naam gebruiken ipv ROM. Programma flash geheugen zou ik voorstellen.
+
+V -Bladzijde 11: ook handig denk om te vermelden dat ook de rekenkundige operaties met de long min of meer ge-emuleerd worden, want er zijn geen directe instructies hiervoor. Misschien is dat nog wel het meest belangrijk om te vertellen dat je ook het liefst gebruik wilt maken van de rekenkundige hardware instructies die er zijn in de processor.
+Top omschreven nu!
+** nog een stuk erbij over het waarom. En dus niet int en long gebruiken...
+
+
+* Getest met de 4.8.1 compiler is FP sneller dan long!!! Raar maar waar. Ook de grootte van de code verschilt niet meer zo.
+Wel is delen veel trager dan vermenigvuldigen.
+Dat moet ik een keer zelf zien en nalopen. Zeeeeeer onlogisch. Ik zou het haast niet aan willen raden aan studenten om maar beter float dan long te gebruiken….
+
+** Ben ik met je eens. Zoals het er nu uitziet is vermenigvuldigen met een constante redelijk snel. Het optellen van een getal (bv 1.0) levert wel een 
+behoorlijke penalty op want de variabelen moeten genormeerd worden.
+
+v -bladzijde 13: PompAan zondigt voor wat betreft de regel dat functies niet mogen beginnen met een hoofdletter. (Bladzijde 9) Persoonlijk val ik hier helemaal niet over.
+
+-blz. 14: uhmzz, ik zou het liefst geen eenletterige variabelenamen willen gebruiken in dit voorbeeld.
+
+V -blz: 15: handig om denk een #define NUM_ADC_VALUES te maken voor de lengte van de array. Dan geef je gelijk het goede voorbeeld en gebruik je de tips van eerder. Ook de body van de for-lus zou ik even netjes op een volgende regel zetten. Daarnaast is variabele i nergens gedeclareerd!
+
+V -blz. 16: is een lastige wat mij betreft. Je hebt op zich een punt, maar dit is sterk afhankelijk van de situatie. Als de executie van een lus bijv. korter is dan het interrupt interval, dan gaat dit probleem nooit voorkomen  (en dat is vaak zo). In andere situaties wil je juist niet de interrupt blokkeren, want je wil allicht de resultaten uit de interrupt bufferen en anderzijds is het soms ook niet zo erg om een meting te missen. Het gaat mij een beetje te ver om te veronderstellen dat dit altijd de beste manier is.
+
+** Nog een voorbeeld erbij.
+
+V -blz. 17: zou misschien mooi zijn om in plaats van een 0 of 1 te zetten in de variabele hier een enum van te maken? Ik weet dat het moeilijker te omschrijven is, maar geeft wel het goede voorbeeld. Daarnaast zou ik het woord flag vermijden, want studenten verwarren dit denk ik met de standaard AVR flags.
+“Direct gebruik van cli/sei is echter niet aan te raden omdat compiler-optimalisatie
+de executie-volgorde kan veranderen.” Verbaast mij…. Is nog wel een discussie waard denk ik zo…
+
+** Zie http://www.nongnu.org/avr-libc/user-manual/optimization.html#optim_code_reorder
+
+Daarnaast is de flag intro op blz. 19 prima, maar in hs. 17 wordt hier al over gesproken.
+
+V -blz. 23: hoofdstuk 22 is niet meer van toepassing denk ik met atmel studio 6.
+Uuhmz, hs 28 is ook afgestemd op avr studio 4 toch?
+V -blz. 26: Is hs. 24 nog niet af?
+
+HS. 29 spreekt HS 13 wel tegen dan (zie hierboven)….
+** Klopt. Bij AS4 is floating point een drama.
+
+Je hebt trouwens helemaal gelijk dat const beter is dan define.  Eigenlijk moeten we defines uit onze  voorbeelden schrappen, maar dat moet dan eigenlijk ook gedaan worden bij C-programmeren...
+

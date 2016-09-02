@@ -1,0 +1,46 @@
+Hoi Jesse,
+
+ik heb de pdf van ‘coderen op de AVR’ weer eens doorgelezen. Lijkt me zeker handig om te gebruiken bij MICPRG (!), maar zoals te doen gebruikelijk heb ik wel weer wat te zeuren ;-) Het gezeur staat hieronder:
+
+V - In de inleiding moet even aangepast worden dat we nu gebruik maken van atmel studio 6. Daarnaast is de site van Harry niet echt verkoopbaar, dus die URL moet ook nog weg.
+
+V -Op bladzijde 8: De variabele naam s zou ik graag willen vervangen door een betere naam. Op zich is de naamgeving hier niet ernstig, maar ik zou graag studenten geen voorbeelden meer willen geven van éénletterige variabele namen. 
+
+V -blz. 9: er staat nog een ‘\’ voor #define
+
+V -En bladzijde 10….. Daar verschillen jij en ik nogal van mening. Ik zou zeggen de kunst is juist om je code zo te schrijven dat je geen commentaar nodig hebt door het gebruik van veel functies en duidelijke variabele namen. Er zijn zeker wat mensen te vinden die dat ook ondersteunen, bijv. : http://apdevblog.com/comments-in-code/ Maar eigenlijk is het boek van Robbert C. Martin (clean code) nog wel de beste bron.
+
+V -bladzijde 11: ik zou een andere naam gebruiken ipv ROM. Programma flash geheugen zou ik voorstellen.
+
+V -Bladzijde 11: ook handig denk om te vermelden dat ook de rekenkundige operaties met de long min of meer ge-emuleerd worden, want er zijn geen directe instructies hiervoor. Misschien is dat nog wel het meest belangrijk om te vertellen dat je ook het liefst gebruik wilt maken van de rekenkundige hardware instructies die er zijn in de processor.
+
+* Getest met de 4.8.1 compiler is FP sneller dan long!!! Raar maar waar. Ook de grootte van de code verschilt niet meer zo.
+Wel is delen veel trager dan vermenigvuldigen.
+
+v -bladzijde 13: PompAan zondigt voor wat betreft de regel dat functies niet mogen beginnen met een hoofdletter. (Bladzijde 9) Persoonlijk val ik hier helemaal niet over.
+
+-blz. 14: uhmzz, ik zou het liefst geen eenletterige variabelenamen willen gebruiken in dit voorbeeld.
+
+V -blz: 15: handig om denk een #define NUM_ADC_VALUES te maken voor de lengte van de array. Dan geef je gelijk het goede voorbeeld en gebruik je de tips van eerder. Ook de body van de for-lus zou ik even netjes op een volgende regel zetten. Daarnaast is variabele i nergens gedeclareerd!
+
+V -blz. 16: is een lastige wat mij betreft. Je hebt op zich een punt, maar dit is sterk afhankelijk van de situatie. Als de executie van een lus bijv. korter is dan het interrupt interval, dan gaat dit probleem nooit voorkomen  (en dat is vaak zo). In andere situaties wil je juist niet de interrupt blokkeren, want je wil allicht de resultaten uit de interrupt bufferen en anderzijds is het soms ook niet zo erg om een meting te missen. Het gaat mij een beetje te ver om te veronderstellen dat dit altijd de beste manier is.
+
+V -blz. 17: zou misschien mooi zijn om in plaats van een 0 of 1 te zetten in de variabele hier een enum van te maken? Ik weet dat het moeilijker te omschrijven is, maar geeft wel het goede voorbeeld. Daarnaast zou ik het woord flag vermijden, want studenten verwarren dit denk ik met de standaard AVR flags.
+
+V -blz. 23: hoofdstuk 22 is niet meer van toepassing denk ik met atmel studio 6.
+
+V -blz. 26: Is hs. 24 nog niet af?
+
+* Nu wel hoop ik.
+
+Wat ik nog wel mis als hoofdstuk is het uitschrijven van berekeningen met constanten in bijv. de preprocessor. Het liefst wil je die berekeningen volledig uitschrijven, zodat duidelijk is waar bepaalde constanten vandaan komen. Daarnaast kost het natuurlijk geen cpu-tijd aangezien de compiler dit natuurlijk al uitrekent.
+
+* Hmmm, dat zit toch in H4? Ik heb van Harry Bd trouwens gehoord dat const beter is... Wat zeg jij?
+
+
+Het bovenstaande wil ik ook zelf wel aanpassen en toevoegen hoor. Het is maar net wat de voorkeur van jou heeft.
+
+Ben
+
+
+* JEsse

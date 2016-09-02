@@ -1,0 +1,90 @@
+@article{greenwade93,
+    author  = "George D. Greenwade",
+    title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
+    year    = "1993",
+    journal = "TUGBoat",
+    volume  = "14",
+    number  = "3",
+    pages   = "342--351"
+}
+
+@book{goossens93,
+    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
+    title     = "The LaTeX Companion",
+    year      = "1993",
+    publisher = "Addison-Wesley",
+    address   = "Reading, Massachusetts"
+}
+
+@article{AbedonHymanThomas2003,
+  author = "Abedon, S. T. and Hyman, P. and Thomas, C.",
+  year = "2003",
+  title = "Experimental examination of bacteriophage latent-period evolution as a response to bacterial availability",
+  journal = "Applied and Environmental Microbiology",
+  volume = "69",
+  pages = "7499--7506"
+}
+
+@incollection{Abedon1994,
+  author = "Abedon, S. T.",
+  title = "Lysis and the interaction between free phages and infected cells",
+  pages = "397--405",
+  booktitle = "Molecular biology of bacteriophage T4",
+  editor = "Karam, Jim D. Karam and Drake, John W. and Kreuzer, Kenneth N. and Mosig, Gisela
+            and Hall, Dwight and Eiserling, Frederick A. and Black, Lindsay W. and Kutter, Elizabeth
+            and Carlson, Karin and Miller, Eric S. and Spicer, Eleanor",
+  publisher = "ASM Press, Washington DC",
+  year = "1994"
+}
+
+@article{Jesse2012,
+  author = "op den Brouw, Jesse E. J.",
+  year = "2012",
+  title = "Using the add3 module for creating BCD numbers from pure binary numbers",
+  journal = "BCD Quotations",
+  volume = "1",
+  pages = "1--12"
+}
+
+@misc{isocdraft2005,
+  author = "ISO/JTC1/SC22/WG14",
+  title = "{ISO/IEC} 9899:1999 specification",
+  howpublished = "\url{http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1124.pdf}",
+  year = "2005",
+  pages = "20",
+  note = "pag. 20, \textsection 5.2.4.1, benaderd 22-01-2013"
+}
+
+@misc{avrlibc2012,
+  author = "---",
+  title = "{AVR} libc v1.8.0",
+  howpublished = "\url{http://savannah.nongnu.org/projects/avr-libc/}",
+  year = "2012",
+  note = "pag. 27, hoofdstuk 5, benaderd 22-01-2013"
+}
+
+@book{nulllobur12,
+    author    = "Linda Null and Julia Lobur",
+    title     = "The {E}ssentials of {C}omputer {O}rganization and {A}rchitecture",
+    edition   = "3",
+    year      = "2012",
+    publisher = "Jones \& Bartlett Learning",
+    address   = "Sudbury, Massachusetts",
+    pages     = "56--58"
+}
+
+@misc{atmega32doc2503,
+  author = "Atmel",
+  title = "{D}atasheet {AT}mega32({L})",
+  howpublished = "\url{http://www.atmel.com/Images/doc2503.pdf}",
+  year = "2011",
+  note = "pag. 165, tabel 68, benaderd 26-01-2013"
+}
+
+@misc{natsem_dm74184_185,
+  author = "National Semiconductor",
+  title = "{D}atasheet {DM}74184/{DM}74185 {BCD}-to-{B}inary and {B}inary-to-{BCD} {C}onverters",
+  howpublished = "\url{http://www.utm.edu/staff/leeb/DM74185.pdf}",
+  year = "1989",
+  note = "benaderd 26-01-2013"
+}
