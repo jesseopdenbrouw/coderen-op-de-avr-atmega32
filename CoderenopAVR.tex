@@ -2,8 +2,8 @@
 % Article for documents at The Hague University
 % of Applied Sciences, Electrical Engineering.
 %
-% (c)2013, J. op den Brouw <J.E.J.opdenBrouw@hhs.nl>
-% v0.4
+% (c)2013-2018, J. op den Brouw <J.E.J.opdenBrouw@hhs.nl>
+% v0.5b
 %
 % Versies 0.1 - 0.3 zijn verschenen als Word-documenten
 %
@@ -12,6 +12,8 @@
 %                minor spelling corrections
 %         0.5  - major changes. changed url link to bibtex info
 %         0.5a - minor changes and typos
+%         0.5b - adjusted spacing (also with some chapternames), because
+%                of changed parskip, typos
 
 %% 12pt charachters, A4 paper size, one side printing, equation left aligned
 %% equation indent at 0 em
@@ -26,7 +28,7 @@
 \title{C coderen op de AVR ATmega}
 \newcommand{\subtitle}{Een aantal praktische tips en voorbeelden voor goede codeertechnieken op de AVR ATmega microcontroller.}
 \date{\today}
-\newcommand{\version}{0.5a}
+\newcommand{\version}{0.5b}
 %% My email address, nicely in a href
 \newcommand\emailaddress{\href{mailto:J.E.J.opdenBrouw@hhs.nl}{\sffamily J.E.J.opdenBrouw@hhs.nl}}
 
@@ -45,7 +47,7 @@
 \usepackage[a4paper,bindingoffset=0.2in,left=1in,right=1in,top=1in,bottom=1.4in,footskip=0.6in]{geometry}
 
 %% Parskip et al.
-\usepackage{parskip}
+\usepackage{parskip}[=v1]
 
 %% Allows increasing the font size of specific fonts beyond LaTeX default specifications
 \usepackage{anyfontsize}
@@ -72,14 +74,14 @@
 \setlength{\mathindent}{1em}
 
 %% Define and use colors
-\usepackage{color}
+\usepackage{xcolor}
 
 %% Use the Helvetica (~ Arial) font
 %\usepackage{helvet}
 
 %% Use the Latin Modern font... Does this change the Math font?
 %%\usepackage{lmodern}
-\usepackage{charter}
+%\usepackage{charter}
 \usepackage[bitstream-charter]{mathdesign}
 
 
@@ -257,7 +259,8 @@
     backgroundcolor=\color{lightgray},
     frame=lines,
     escapeinside={(*@}{@*)},              % escape to Latex using (*@ ...  @*)
-    aboveskip=14pt%,belowskip=0pt
+    aboveskip=0pt,
+    belowskip=0pt
 }
 % In dit document worden twee programmeertalen gebruikt.
 \lstdefinestyle{AVR}{
@@ -311,6 +314,12 @@
 \def\lstC{\lstinline[style=C]}
 \def\lstAVR{\lstinline[style=AVR]}
 % just to let TexMaker render the text correct again \end{lstlisting}
+
+\addto\captionsdutch{%
+   \renewcommand\listfigurename{Lijst van figuren\vspace*{10pt}}}
+\renewcommand{\lstlistlistingname}{Listings\vspace*{10pt}}
+
+
 %%%%% Set up listing style for C, one with and one without line numbers
 %%%\lstdefinestyle{numbers}{numbers=left, stepnumber=1, numberstyle=\small\color{gray}, numbersep=10pt}
 %%%\lstdefinestyle{nonumbers}{numbers=none}
@@ -389,6 +398,7 @@
 
 %% Ahhhh... At last, the beginning of the document...
 \begin{document}
+\raggedbottom
 %% Make title page
 \maketitle
 
@@ -439,7 +449,7 @@ de STK500, de JTAGICE-mkII en een ATmega32A. Daarnaast is een eigen\index{ATmega
 opsteekprint gemaakt met een LCD en potmeter voor gebruik van de ADC.\index{ADC}
 Er is een website beschikbaar waarop het hele curriculum, inclusief PowerPoint-%
 presentaties en practicumopdrachten is ondergebracht. Surf maar naar
-\url{http://bd.eduweb.hhs.nl/micprg/}. Een kanttekening: deze website wordt
+\url{http://elektro.eduweb.hhs.nl/micprg/}. Een kanttekening: deze website wordt
 niet meer bijgewerkt.
 
 C is een geweldige taal, je kan er ontzettend veel mee doen als je een
@@ -451,7 +461,7 @@ compileerbaar. Wil je meer weten van totaal niet leesbare code, ga dan naar
 \url{http://www0.us.ioccc.org/}.
 
 Een aantal van deze tips en tricks wordt ondersteund met AVR-assembler code.
-Het is raadzaam om op de hoogste te zijn van de werking van de diverse instructies.
+Het is raadzaam om op de hoogte te zijn van de werking van de diverse instructies.
 Het toont maar weer eens aan dat alleen kennis van C niet altijd genoeg is.
 
 Dank gaat uit naar oud-collega Harry Broeders en collega Ben Kuiper voor hun kritische
@@ -510,7 +520,6 @@ zijn niet te volgen, het is beter om ze uit te schrijven. Dit levert weliswaar
 meer broncode op, maar de compilers zijn tegenwoordig zo goed, dat de resulterende
 assemblercode minimaal is. Anderzijds is
 
-\newpage
 \begin{lstlisting}[style=C,numbers=none,belowcaptionskip=-12pt]
 TIMSK|=0x04;
 \end{lstlisting}
@@ -888,6 +897,7 @@ int main() {
 
 Zoals gezegd hangt het ook af van de berekening. In het onderstaande codefragment worden
 twee vermenigvuldigingen uitgevoerd:
+
 \begin{lstlisting}[style=C]
 lo = ltime*3;   /* integer multiply */
 fo = ftime*3;   /* float multiply */
@@ -896,6 +906,7 @@ fo = ftime*3;   /* float multiply */
 De eerste berekening is een integer-vermenigvuldiging. De compiler is behoorlijk slim
 en voert niet een echte vermenigvuldiging uit (met de \lstAVR{mul}-instructie) maar
 gebruikt de formule:
+
 \begin{lstlisting}[style=C]
 lo = (ltime+ltime) + ltime;   /* multiply with 3 using adds */
 \end{lstlisting}
@@ -959,16 +970,16 @@ levert wel een tijdbesparing omdat het aanroepen en terugkeren van de functie wo
 #define POMP_BIT 6
 
 void pompAan() {
-	PORTB|=(1<<POMP_BIT);
+	PORTB |= (1<<POMP_BIT);
 }
 
 void pompUit() {
-	PORTB&=~(1<<POMP_BIT);
+	PORTB &= ~(1<<POMP_BIT);
 }
 
 int main() {
 
-	if (s==Load) {
+	if (s == Load) {
 		pompAan();
 	} else {
 		pompUit();
